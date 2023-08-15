@@ -3,30 +3,28 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class Problem1436 {
+public class Problem2839 {
     public static void main(String[] args) throws Exception {
-        final int THE_END = 666;
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int count = Integer.parseInt(br.readLine());
+        int sugar = Integer.parseInt(br.readLine());
 
         br.close();
 
-        int numberingOfMovie = THE_END - 1;
+        int bags = -1;
 
-        for(int i = 0; i < count;) {
-            numberingOfMovie++;
+        for(int i = (int) (sugar / 5); i >= 0; i--) {
+            int restOfSugar = sugar - 5 * i;
 
-            String tempString = Integer.toString(numberingOfMovie);
-
-            if(tempString.contains("666")) {
-                i++;
+            if(restOfSugar % 3 == 0) {
+                if(bags == -1 || (bags != -1 && i + restOfSugar / 3 < bags)) {
+                    bags = i + restOfSugar / 3;
+                }
             }
         }
 
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        bw.write(numberingOfMovie + "");
+        bw.write(bags + "");
 
         bw.close();
     }
