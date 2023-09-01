@@ -5,6 +5,11 @@ import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Problem18870 {
+
+    /*
+     * 풀이중
+     */
+    
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int pos[] = new int[Integer.parseInt(br.readLine())];
